@@ -1,0 +1,28 @@
+<div class="todo-item">
+  <!-- {{ item.title }} -->
+  <input *ngIf="!editable" class="sm-text-input" readonly [value]="item.title">
+  
+  <input *ngIf="editable" class="sm-text-input" [(ngModel)]="editableValue" #editedItem
+    (keyup.enter)="saveItem()">
+
+  <div class="btn-wrapper">
+    <ng-container *ngIf="editable">
+      <button class="btn" (click)="editable = !editable">Cancel</button>
+      <button class="btn btn-save" (click)="saveItem()">Save</button>
+    </ng-container>
+    <ng-container *ngIf="!editable">
+      <button class="btn" (click)="onEditClick()">Edit</button>
+      <button class="btn btn-red" (click)="removeItem()">Remove</button>
+    </ng-container>
+
+  </div>
+
+  <div>
+
+    <!-- <div class="btn-wrapper" *ngIf="editable">
+      <button class="btn" (click)="editable = !editable">Cancel</button>
+      <button class="btn btn-save" (click)="saveItem()">Save</button>
+    </div> -->
+  </div>
+
+</div>

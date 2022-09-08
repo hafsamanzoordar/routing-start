@@ -1,0 +1,7 @@
+<input class="todo-input" 
+        #inputElement
+         (keyup.enter)="submitValue(inputElement.value); inputElement.value=''">
+
+  <button class= "btn" (click)="submitValue(inputElement.value); inputElement.value=''">
+    Add Item
+  </button>
